@@ -1,0 +1,20 @@
+Smart-NESMA
+Copyright 2026 Smart-NESMA contributors.
+
+This project is derived from Gin-Vue-Admin:
+https://github.com/flipped-aurora/gin-vue-admin
+Copyright 2019 北京翻转极光科技有限责任公司
+Copyright flipped-aurora 开源团队
+
+Gin-Vue-Admin and this distribution are provided under the Apache License,
+Version 2.0. A copy of the upstream license is included in LICENSE.
+Original source notices and upstream technical-support attribution are retained.
+Upstream project documentation: https://www.gin-vue-admin.com/
+
+Smart-NESMA modifications include NESMA project/cycle/version management,
+hierarchical requirements, AI-assisted analysis, function-point evaluation,
+document generation, knowledge/agent workflows, application-specific UI and
+documentation. The two attribution blocks displayed in the application footer
+were removed; the upstream attribution remains in this file and README.md.
+
+Dependency licenses and trademarks remain with their respective owners.

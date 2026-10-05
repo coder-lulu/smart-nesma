@@ -1,0 +1,558 @@
+// =================================================================
+// Smart-NESMA 组件样式库
+// =================================================================
+
+@import './design-tokens.scss';
+
+// === 卡片组件系统 ===
+.nesma-card {
+  background: var(--nesma-bg-primary);
+  border-radius: var(--nesma-radius-lg);
+  box-shadow: var(--nesma-shadow-base);
+  border: 1px solid var(--nesma-border-light);
+  transition: all var(--nesma-duration-base) var(--nesma-ease-out);
+  overflow: hidden;
+  
+  &:hover {
+    box-shadow: var(--nesma-shadow-md);
+    transform: translateY(-1px);
+  }
+  
+  &__header {
+    padding: var(--nesma-space-6);
+    border-bottom: 1px solid var(--nesma-border-light);
+    background: var(--nesma-bg-secondary);
+    
+    .nesma-card__title {
+      font-size: var(--nesma-text-lg);
+      font-weight: var(--nesma-font-semibold);
+      color: var(--nesma-text-primary);
+      margin: 0;
+    }
+    
+    .nesma-card__subtitle {
+      font-size: var(--nesma-text-sm);
+      color: var(--nesma-text-secondary);
+      margin: var(--nesma-space-1) 0 0 0;
+    }
+  }
+  
+  &__body {
+    padding: var(--nesma-space-6);
+  }
+  
+  &__footer {
+    padding: var(--nesma-space-4) var(--nesma-space-6);
+    border-top: 1px solid var(--nesma-border-light);
+    background: var(--nesma-bg-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  // 卡片变体
+  &--elevated {
+    box-shadow: var(--nesma-shadow-lg);
+    
+    &:hover {
+      box-shadow: var(--nesma-shadow-xl);
+      transform: translateY(-2px);
+    }
+  }
+  
+  &--outlined {
+    box-shadow: none;
+    border: 2px solid var(--nesma-border-medium);
+    
+    &:hover {
+      border-color: var(--nesma-primary);
+      box-shadow: 0 0 0 1px var(--nesma-primary-light);
+    }
+  }
+  
+  &--gradient {
+    background: var(--nesma-gradient-primary);
+    border: none;
+    color: var(--nesma-text-inverse);
+    
+    .nesma-card__header,
+    .nesma-card__footer {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+    
+    .nesma-card__title {
+      color: var(--nesma-text-inverse);
+    }
+    
+    .nesma-card__subtitle {
+      color: rgba(255, 255, 255, 0.8);
+    }
+  }
+}
+
+// === 按钮组件系统 ===
+.nesma-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--nesma-space-3) var(--nesma-space-4);
+  font-size: var(--nesma-text-sm);
+  font-weight: var(--nesma-font-medium);
+  line-height: 1.25;
+  border-radius: var(--nesma-radius-md);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all var(--nesma-duration-base) var(--nesma-ease-out);
+  text-decoration: none;
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+  
+  &:focus-visible {
+    outline: 2px solid var(--nesma-primary);
+    outline-offset: 2px;
+  }
+  
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+  
+  // 按钮尺寸
+  &--sm {
+    padding: var(--nesma-space-2) var(--nesma-space-3);
+    font-size: var(--nesma-text-xs);
+    border-radius: var(--nesma-radius-base);
+  }
+  
+  &--lg {
+    padding: var(--nesma-space-4) var(--nesma-space-6);
+    font-size: var(--nesma-text-base);
+    border-radius: var(--nesma-radius-lg);
+  }
+  
+  &--xl {
+    padding: var(--nesma-space-5) var(--nesma-space-8);
+    font-size: var(--nesma-text-lg);
+    border-radius: var(--nesma-radius-xl);
+  }
+  
+  // 按钮变体
+  &--primary {
+    background: var(--nesma-gradient-primary);
+    color: var(--nesma-text-inverse);
+    
+    &:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+    }
+    
+    &:active {
+      transform: translateY(0);
+    }
+  }
+  
+  &--secondary {
+    background: var(--nesma-bg-primary);
+    color: var(--nesma-primary);
+    border-color: var(--nesma-primary);
+    
+    &:hover {
+      background: var(--nesma-primary);
+      color: var(--nesma-text-inverse);
+    }
+  }
+  
+  &--success {
+    background: var(--nesma-gradient-success);
+    color: var(--nesma-text-inverse);
+    
+    &:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(39, 174, 96, 0.4);
+    }
+  }
+  
+  &--warning {
+    background: var(--nesma-gradient-warning);
+    color: var(--nesma-text-inverse);
+    
+    &:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(243, 156, 18, 0.4);
+    }
+  }
+  
+  &--danger {
+    background: var(--nesma-gradient-danger);
+    color: var(--nesma-text-inverse);
+    
+    &:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(231, 76, 60, 0.4);
+    }
+  }
+  
+  &--ghost {
+    background: transparent;
+    color: var(--nesma-text-primary);
+    
+    &:hover {
+      background: var(--nesma-bg-tertiary);
+    }
+  }
+  
+  &--link {
+    background: transparent;
+    color: var(--nesma-primary);
+    border: none;
+    padding: 0;
+    
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  
+  // 图标按钮
+  &--icon-only {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border-radius: var(--nesma-radius-md);
+    
+    &.nesma-btn--sm {
+      width: 32px;
+      height: 32px;
+    }
+    
+    &.nesma-btn--lg {
+      width: 48px;
+      height: 48px;
+    }
+  }
+  
+  // 按钮组
+  &-group {
+    display: inline-flex;
+    
+    .nesma-btn {
+      border-radius: 0;
+      margin-left: -1px;
+      
+      &:first-child {
+        border-top-left-radius: var(--nesma-radius-md);
+        border-bottom-left-radius: var(--nesma-radius-md);
+        margin-left: 0;
+      }
+      
+      &:last-child {
+        border-top-right-radius: var(--nesma-radius-md);
+        border-bottom-right-radius: var(--nesma-radius-md);
+      }
+      
+      &:focus {
+        z-index: 1;
+      }
+    }
+  }
+}
+
+// === 输入组件系统 ===
+.nesma-input {
+  width: 100%;
+  padding: var(--nesma-space-3) var(--nesma-space-4);
+  font-size: var(--nesma-text-sm);
+  line-height: 1.5;
+  color: var(--nesma-text-primary);
+  background: var(--nesma-bg-primary);
+  border: 1px solid var(--nesma-border-medium);
+  border-radius: var(--nesma-radius-md);
+  transition: all var(--nesma-duration-base) var(--nesma-ease-out);
+  
+  &:focus {
+    outline: none;
+    border-color: var(--nesma-primary);
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  }
+  
+  &:disabled {
+    background: var(--nesma-bg-tertiary);
+    color: var(--nesma-text-disabled);
+    cursor: not-allowed;
+  }
+  
+  &::placeholder {
+    color: var(--nesma-text-muted);
+  }
+  
+  // 输入框尺寸
+  &--sm {
+    padding: var(--nesma-space-2) var(--nesma-space-3);
+    font-size: var(--nesma-text-xs);
+  }
+  
+  &--lg {
+    padding: var(--nesma-space-4) var(--nesma-space-5);
+    font-size: var(--nesma-text-base);
+  }
+  
+  // 输入框状态
+  &--error {
+    border-color: var(--nesma-danger);
+    
+    &:focus {
+      box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1);
+    }
+  }
+  
+  &--success {
+    border-color: var(--nesma-success);
+    
+    &:focus {
+      box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.1);
+    }
+  }
+}
+
+// === 标签组件 ===
+.nesma-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--nesma-space-1) var(--nesma-space-3);
+  font-size: var(--nesma-text-xs);
+  font-weight: var(--nesma-font-medium);
+  border-radius: var(--nesma-radius-full);
+  white-space: nowrap;
+  
+  &--primary {
+    background: rgba(102, 126, 234, 0.1);
+    color: var(--nesma-primary-dark);
+  }
+  
+  &--success {
+    background: rgba(39, 174, 96, 0.1);
+    color: var(--nesma-success);
+  }
+  
+  &--warning {
+    background: rgba(243, 156, 18, 0.1);
+    color: var(--nesma-warning);
+  }
+  
+  &--danger {
+    background: rgba(231, 76, 60, 0.1);
+    color: var(--nesma-danger);
+  }
+  
+  &--info {
+    background: rgba(52, 152, 219, 0.1);
+    color: var(--nesma-info);
+  }
+  
+  &--gray {
+    background: var(--nesma-gray-100);
+    color: var(--nesma-gray-600);
+  }
+}
+
+// === 通知/警告组件 ===
+.nesma-alert {
+  padding: var(--nesma-space-4);
+  border-radius: var(--nesma-radius-md);
+  border-left: 4px solid;
+  margin-bottom: var(--nesma-space-4);
+  
+  &__title {
+    font-weight: var(--nesma-font-semibold);
+    margin-bottom: var(--nesma-space-2);
+  }
+  
+  &__content {
+    font-size: var(--nesma-text-sm);
+    line-height: var(--nesma-leading-relaxed);
+  }
+  
+  &--info {
+    background: var(--nesma-info-bg);
+    border-color: var(--nesma-info);
+    color: var(--nesma-info);
+  }
+  
+  &--success {
+    background: var(--nesma-success-bg);
+    border-color: var(--nesma-success);
+    color: var(--nesma-success);
+  }
+  
+  &--warning {
+    background: var(--nesma-warning-bg);
+    border-color: var(--nesma-warning);
+    color: var(--nesma-warning);
+  }
+  
+  &--danger {
+    background: var(--nesma-danger-bg);
+    border-color: var(--nesma-danger);
+    color: var(--nesma-danger);
+  }
+}
+
+// === 加载动画 ===
+.nesma-spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--nesma-border-light);
+  border-top: 2px solid var(--nesma-primary);
+  border-radius: 50%;
+  animation: nesma-spin 1s linear infinite;
+  
+  &--sm {
+    width: 16px;
+    height: 16px;
+  }
+  
+  &--lg {
+    width: 32px;
+    height: 32px;
+    border-width: 3px;
+  }
+}
+
+@keyframes nesma-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+// === 脉动动画 ===
+.nesma-pulse {
+  animation: nesma-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes nesma-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+// === 跳动动画 ===
+.nesma-bounce {
+  animation: nesma-bounce 1s infinite;
+}
+
+@keyframes nesma-bounce {
+  0%, 20%, 53%, 80%, 100% {
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    transform: translate3d(0, 0, 0);
+  }
+  40%, 43% {
+    animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+    transform: translate3d(0, -30px, 0);
+  }
+  70% {
+    animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+    transform: translate3d(0, -15px, 0);
+  }
+  90% {
+    transform: translate3d(0, -4px, 0);
+  }
+}
+
+// === 进度条组件 ===
+.nesma-progress {
+  width: 100%;
+  height: 8px;
+  background: var(--nesma-gray-200);
+  border-radius: var(--nesma-radius-full);
+  overflow: hidden;
+  
+  &__bar {
+    height: 100%;
+    background: var(--nesma-gradient-primary);
+    border-radius: var(--nesma-radius-full);
+    transition: width var(--nesma-duration-slow) var(--nesma-ease-out);
+    position: relative;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+      );
+      animation: nesma-progress-shine 2s infinite;
+    }
+  }
+  
+  &--sm {
+    height: 4px;
+  }
+  
+  &--lg {
+    height: 12px;
+  }
+}
+
+@keyframes nesma-progress-shine {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+// === 骨架屏组件 ===
+.nesma-skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--nesma-gray-200) 25%,
+    var(--nesma-gray-100) 50%,
+    var(--nesma-gray-200) 75%
+  );
+  background-size: 200% 100%;
+  animation: nesma-skeleton-loading 1.5s infinite;
+  border-radius: var(--nesma-radius-base);
+  
+  &--text {
+    height: 1em;
+    margin-bottom: 0.5em;
+    
+    &:last-child {
+      width: 60%;
+      margin-bottom: 0;
+    }
+  }
+  
+  &--avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+  
+  &--button {
+    height: 40px;
+    width: 100px;
+    border-radius: var(--nesma-radius-md);
+  }
+}
+
+@keyframes nesma-skeleton-loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}

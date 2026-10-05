@@ -1,0 +1,220 @@
+// =================================================================
+// Smart-NESMA 设计系统 - 设计令牌 (Design Tokens)
+// =================================================================
+
+:root {
+  // === 主题色彩系统 ===
+  
+  // 主品牌色 - NESMA蓝紫色调
+  --nesma-primary: #667eea;
+  --nesma-primary-light: #89a1f1;
+  --nesma-primary-lighter: #b8c9f7;
+  --nesma-primary-dark: #4361ee;
+  --nesma-primary-darker: #3f37c9;
+  
+  // 辅助品牌色 - 渐变紫色
+  --nesma-secondary: #764ba2;
+  --nesma-secondary-light: #9b73c5;
+  --nesma-secondary-lighter: #c09ce0;
+  --nesma-secondary-dark: #5c3689;
+  --nesma-secondary-darker: #462670;
+  
+  // 功能色彩
+  --nesma-success: #27ae60;
+  --nesma-success-light: #2ecc71;
+  --nesma-success-bg: #d5f4e6;
+  
+  --nesma-warning: #f39c12;
+  --nesma-warning-light: #f1c40f;
+  --nesma-warning-bg: #fef9e7;
+  
+  --nesma-danger: #e74c3c;
+  --nesma-danger-light: #ec7063;
+  --nesma-danger-bg: #fadbd8;
+  
+  --nesma-info: #3498db;
+  --nesma-info-light: #5dade2;
+  --nesma-info-bg: #d6eaf8;
+  
+  // === 中性色系统 ===
+  --nesma-gray-50: #f8fafc;
+  --nesma-gray-100: #f1f5f9;
+  --nesma-gray-200: #e2e8f0;
+  --nesma-gray-300: #cbd5e1;
+  --nesma-gray-400: #94a3b8;
+  --nesma-gray-500: #64748b;
+  --nesma-gray-600: #475569;
+  --nesma-gray-700: #334155;
+  --nesma-gray-800: #1e293b;
+  --nesma-gray-900: #0f172a;
+  
+  // === 文字色彩 ===
+  --nesma-text-primary: var(--nesma-gray-900);
+  --nesma-text-secondary: var(--nesma-gray-600);
+  --nesma-text-muted: var(--nesma-gray-500);
+  --nesma-text-disabled: var(--nesma-gray-400);
+  --nesma-text-inverse: #ffffff;
+  
+  // === 背景色彩 ===
+  --nesma-bg-primary: #ffffff;
+  --nesma-bg-secondary: var(--nesma-gray-50);
+  --nesma-bg-tertiary: var(--nesma-gray-100);
+  --nesma-bg-overlay: rgba(15, 23, 42, 0.6);
+  
+  // === 边框色彩 ===
+  --nesma-border-light: var(--nesma-gray-200);
+  --nesma-border-medium: var(--nesma-gray-300);
+  --nesma-border-strong: var(--nesma-gray-400);
+  
+  // === 字体系统 ===
+  --nesma-font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --nesma-font-family-mono: 'SF Mono', Monaco, Inconsolata, 'Roboto Mono', 'Source Code Pro', Menlo, Consolas, 'Courier New', monospace;
+  
+  // === 字体尺寸 ===
+  --nesma-text-xs: 0.75rem;    // 12px
+  --nesma-text-sm: 0.875rem;   // 14px
+  --nesma-text-base: 1rem;     // 16px
+  --nesma-text-lg: 1.125rem;   // 18px
+  --nesma-text-xl: 1.25rem;    // 20px
+  --nesma-text-2xl: 1.5rem;    // 24px
+  --nesma-text-3xl: 1.875rem;  // 30px
+  --nesma-text-4xl: 2.25rem;   // 36px
+  --nesma-text-5xl: 3rem;      // 48px
+  
+  // === 字体权重 ===
+  --nesma-font-light: 300;
+  --nesma-font-normal: 400;
+  --nesma-font-medium: 500;
+  --nesma-font-semibold: 600;
+  --nesma-font-bold: 700;
+  
+  // === 行高 ===
+  --nesma-leading-tight: 1.25;
+  --nesma-leading-normal: 1.5;
+  --nesma-leading-relaxed: 1.75;
+  
+  // === 间距系统 (8px 基数) ===
+  --nesma-space-1: 0.25rem;   // 4px
+  --nesma-space-2: 0.5rem;    // 8px
+  --nesma-space-3: 0.75rem;   // 12px
+  --nesma-space-4: 1rem;      // 16px
+  --nesma-space-5: 1.25rem;   // 20px
+  --nesma-space-6: 1.5rem;    // 24px
+  --nesma-space-8: 2rem;      // 32px
+  --nesma-space-10: 2.5rem;   // 40px
+  --nesma-space-12: 3rem;     // 48px
+  --nesma-space-16: 4rem;     // 64px
+  --nesma-space-20: 5rem;     // 80px
+  --nesma-space-24: 6rem;     // 96px
+  --nesma-space-32: 8rem;     // 128px
+  
+  // === 圆角系统 ===
+  --nesma-radius-none: 0;
+  --nesma-radius-sm: 0.25rem;   // 4px
+  --nesma-radius-base: 0.375rem; // 6px
+  --nesma-radius-md: 0.5rem;    // 8px
+  --nesma-radius-lg: 0.75rem;   // 12px
+  --nesma-radius-xl: 1rem;      // 16px
+  --nesma-radius-2xl: 1.5rem;   // 24px
+  --nesma-radius-full: 9999px;
+  
+  // === 阴影系统 ===
+  --nesma-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --nesma-shadow-base: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --nesma-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --nesma-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --nesma-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --nesma-shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  --nesma-shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+  
+  // === 渐变系统 ===
+  --nesma-gradient-primary: linear-gradient(135deg, var(--nesma-primary) 0%, var(--nesma-secondary) 100%);
+  --nesma-gradient-success: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+  --nesma-gradient-warning: linear-gradient(135deg, #f39c12 0%, #f1c40f 100%);
+  --nesma-gradient-danger: linear-gradient(135deg, #e74c3c 0%, #ec7063 100%);
+  --nesma-gradient-info: linear-gradient(135deg, #3498db 0%, #5dade2 100%);
+  --nesma-gradient-gray: linear-gradient(135deg, var(--nesma-gray-600) 0%, var(--nesma-gray-500) 100%);
+  
+  // === 动画系统 ===
+  --nesma-duration-fast: 150ms;
+  --nesma-duration-base: 250ms;
+  --nesma-duration-slow: 350ms;
+  --nesma-duration-slower: 500ms;
+  
+  --nesma-ease-linear: linear;
+  --nesma-ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --nesma-ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --nesma-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  
+  // === 层级系统 ===
+  --nesma-z-dropdown: 1000;
+  --nesma-z-sticky: 1020;
+  --nesma-z-fixed: 1030;
+  --nesma-z-modal-backdrop: 1040;
+  --nesma-z-modal: 1050;
+  --nesma-z-popover: 1060;
+  --nesma-z-tooltip: 1070;
+  --nesma-z-toast: 1080;
+  
+  // === 断点系统 ===
+  --nesma-breakpoint-sm: 640px;
+  --nesma-breakpoint-md: 768px;
+  --nesma-breakpoint-lg: 1024px;
+  --nesma-breakpoint-xl: 1280px;
+  --nesma-breakpoint-2xl: 1536px;
+}
+
+// === 暗色主题 ===
+[data-theme="dark"] {
+  // 主题色保持不变，但调整透明度和饱和度
+  --nesma-primary: #89a1f1;
+  --nesma-secondary: #9b73c5;
+  
+  // 背景色反转
+  --nesma-bg-primary: var(--nesma-gray-900);
+  --nesma-bg-secondary: var(--nesma-gray-800);
+  --nesma-bg-tertiary: var(--nesma-gray-700);
+  --nesma-bg-overlay: rgba(255, 255, 255, 0.1);
+  
+  // 文字色反转
+  --nesma-text-primary: var(--nesma-gray-100);
+  --nesma-text-secondary: var(--nesma-gray-300);
+  --nesma-text-muted: var(--nesma-gray-400);
+  --nesma-text-disabled: var(--nesma-gray-600);
+  --nesma-text-inverse: var(--nesma-gray-900);
+  
+  // 边框色调整
+  --nesma-border-light: var(--nesma-gray-700);
+  --nesma-border-medium: var(--nesma-gray-600);
+  --nesma-border-strong: var(--nesma-gray-500);
+}
+
+// === 高对比度主题 ===
+[data-theme="high-contrast"] {
+  --nesma-primary: #0066cc;
+  --nesma-secondary: #5500aa;
+  --nesma-text-primary: #000000;
+  --nesma-text-secondary: #333333;
+  --nesma-bg-primary: #ffffff;
+  --nesma-border-light: #000000;
+  --nesma-border-medium: #000000;
+  --nesma-border-strong: #000000;
+}
+
+// === 运动敏感用户设置 ===
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --nesma-duration-fast: 0ms;
+    --nesma-duration-base: 0ms;
+    --nesma-duration-slow: 0ms;
+    --nesma-duration-slower: 0ms;
+  }
+}
+
+// === 高分辨率屏幕优化 ===
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  :root {
+    // 高分辨率屏幕下的细边框
+    --nesma-border-thin: 0.5px;
+  }
+}

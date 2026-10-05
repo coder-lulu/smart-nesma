@@ -1,0 +1,9 @@
+Backup created: 20261005-181227
+Project: /opt/code/smart-nesma
+Database: s_nesma (PostgreSQL container pgvector-db, host port 5435)
+Project bytes: 1071696198
+Project files: 54295
+Database dump bytes: 19267948
+Globals bytes: 519
+ed9452ad6bebc8be1d8dcc2aa91c4feedc9d8a2e36182dfeb720e9282a6b9181  /opt/smart-nesma-backup-20261005-181227/database/s_nesma.dump
+e87fe0b759ce35b59db3ed3e5dbdf8f6bf3eef0c04b27fe67f98f245cea3f3dd  /opt/smart-nesma-backup-20261005-181227/database/globals.sql

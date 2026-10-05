@@ -1,0 +1,74 @@
+/web/node_modules
+/web/dist
+
+.DS_Store
+
+# local env files
+.env.local
+.env.*.local
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+rm_file/
+/server/log/
+/server/gva
+/server/server
+/server/latest_log
+/server/__debug_bin*
+server/uploads/
+
+*.iml
+web/.pnpm-debug.log
+
+# binary files
+*.exe
+
+# SQLite database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Local credentials and database backups (publish example configuration only)
+/server/config.yaml
+/server/config.docker.yaml
+/server/config.zip
+/server/config.local.yaml
+/server/config.*.local.yaml
+/database/*.dump
+/database/globals.sql
+.env
+.env.*
+!.env.example
+!/web/.env.development
+!/web/.env.production
+!/web/pnpm-lock.yaml
+
+# Generated diagnostics, dependencies, and compiled output
+/logs/
+*.log
+node_modules/
+dist/
+/server/main
+/server/test_build
+*.code-workspace
+.cursor/
+.claude/
+/CLAUDE.md
+/*_REPORT.md
+/web/*_report.md
+/web/*-report.md
+/*_verification.html
+
+/web/dist.tar.gz

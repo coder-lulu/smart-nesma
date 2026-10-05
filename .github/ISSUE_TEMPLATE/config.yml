@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Smart-NESMA 使用说明
+    url: https://github.com/coder-lulu/smart-nesma/blob/main/README.md
+    about: 功能介绍、运行配置和使用说明请先查看 README。
+  - name: Smart-NESMA 项目主页
+    url: https://github.com/coder-lulu/smart-nesma
+    about: 查看项目源码与最新变更。

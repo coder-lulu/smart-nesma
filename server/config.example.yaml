@@ -1,0 +1,326 @@
+# Copy to config.yaml and replace CHANGE_ME values before running.
+aliyun-oss:
+    endpoint: yourEndpoint
+    access-key-id: "CHANGE_ME"
+    access-key-secret: "CHANGE_ME"
+    bucket-name: yourBucketName
+    bucket-url: yourBucketUrl
+    base-path: yourBasePath
+autocode:
+    web: web/src
+    root: ".."
+    server: server
+    module: github.com/flipped-aurora/gin-vue-admin/server
+    ai-path: ""
+aws-s3:
+    bucket: xxxxx-10005608
+    region: ap-shanghai
+    endpoint: ""
+    secret-id: "CHANGE_ME"
+    secret-key: "CHANGE_ME"
+    base-url: https://gin.vue.admin
+    path-prefix: github.com/flipped-aurora/gin-vue-admin/server
+    s3-force-path-style: false
+    disable-ssl: false
+captcha:
+    key-long: 6
+    img-width: 240
+    img-height: 80
+    open-captcha: 0
+    open-captcha-timeout: 3600
+cloudflare-r2:
+    bucket: xxxx0bucket
+    base-url: https://gin.vue.admin.com
+    path: uploads
+    account-id: xxx_account_id
+    access-key-id: "CHANGE_ME"
+    secret-access-key: "CHANGE_ME"
+cors:
+    mode: allow-all
+    whitelist:
+        - allow-origin: http://localhost:8080
+          allow-methods: POST, GET
+          allow-headers: Content-Type,AccessToken,X-CSRF-Token, Authorization, Token,X-Token,X-User-Id
+          expose-headers: Content-Length, Access-Control-Allow-Origin, Access-Control-Allow-Headers, Content-Type
+          allow-credentials: true
+        - allow-origin: example2.com
+          allow-methods: GET, POST
+          allow-headers: content-type
+          expose-headers: Content-Length, Access-Control-Allow-Origin, Access-Control-Allow-Headers, Content-Type
+          allow-credentials: true
+db-list:
+    - type: ""
+      alias-name: ""
+      prefix: ""
+      port: ""
+      config: ""
+      db-name: ""
+      username: "CHANGE_ME"
+      password: "CHANGE_ME"
+      path: ""
+      engine: ""
+      log-mode: ""
+      max-idle-conns: 10
+      max-open-conns: 100
+      singular: false
+      log-zap: false
+      disable: true
+disk-list:
+    - mount-point: /
+email:
+    to: xxx@qq.com
+    from: xxx@163.com
+    host: smtp.163.com
+    secret: "CHANGE_ME"
+    nickname: test
+    port: 465
+    is-ssl: true
+    is-loginauth: false
+excel:
+    dir: ./resource/excel/
+hua-wei-obs:
+    path: you-path
+    bucket: you-bucket
+    endpoint: you-endpoint
+    access-key: "CHANGE_ME"
+    secret-key: "CHANGE_ME"
+jwt:
+    signing-key: "CHANGE_ME"
+    expires-time: 7d
+    buffer-time: 1d
+    issuer: "smart-nesma"
+local:
+    path: uploads/file
+    store-path: uploads/file
+mcp:
+    name: GVA_MCP
+    version: v1.0.0
+    sse_path: /sse
+    message_path: /message
+    url_prefix: ""
+minio:
+    endpoint: yourEndpoint
+    access-key-id: "CHANGE_ME"
+    access-key-secret: "CHANGE_ME"
+    bucket-name: yourBucketName
+    use-ssl: false
+    base-path: ""
+    bucket-url: http://host:9000/yourBucketName
+mongo:
+    coll: ""
+    options: ""
+    database: ""
+    username: "CHANGE_ME"
+    password: "CHANGE_ME"
+    auth-source: ""
+    min-pool-size: 0
+    max-pool-size: 100
+    socket-timeout-ms: 0
+    connect-timeout-ms: 0
+    is-zap: false
+    hosts:
+        - host: ""
+          port: ""
+mssql:
+    prefix: ""
+    port: ""
+    config: ""
+    db-name: ""
+    username: "CHANGE_ME"
+    password: "CHANGE_ME"
+    path: ""
+    engine: ""
+    log-mode: ""
+    max-idle-conns: 10
+    max-open-conns: 100
+    singular: false
+    log-zap: false
+mysql:
+    prefix: ""
+    port: ""
+    config: ""
+    db-name: ""
+    username: "CHANGE_ME"
+    password: "CHANGE_ME"
+    path: ""
+    engine: ""
+    log-mode: ""
+    max-idle-conns: 10
+    max-open-conns: 100
+    singular: false
+    log-zap: false
+oracle:
+    prefix: ""
+    port: ""
+    config: ""
+    db-name: ""
+    username: "CHANGE_ME"
+    password: "CHANGE_ME"
+    path: ""
+    engine: ""
+    log-mode: ""
+    max-idle-conns: 10
+    max-open-conns: 100
+    singular: false
+    log-zap: false
+pgsql:
+    prefix: ""
+    port: "5435"
+    config: sslmode=disable TimeZone=Asia/Shanghai
+    db-name: s_nesma
+    username: "CHANGE_ME"
+    password: "CHANGE_ME"
+    path: 127.0.0.1
+    engine: ""
+    log-mode: error
+    max-idle-conns: 10
+    max-open-conns: 100
+    singular: false
+    log-zap: false
+qiniu:
+    zone: ZoneHuaDong
+    bucket: ""
+    img-path: ""
+    access-key: "CHANGE_ME"
+    secret-key: "CHANGE_ME"
+    use-https: false
+    use-cdn-domains: false
+redis:
+    name: ""
+    addr: 127.0.0.1:6380
+    password: "CHANGE_ME"
+    db: 0
+    useCluster: false
+    clusterAddrs:
+        - 127.0.0.1:7000
+        - 127.0.0.1:7001
+        - 127.0.0.1:7002
+redis-list:
+    - name: cache
+      addr: 127.0.0.1:6380
+      password: "CHANGE_ME"
+
+# AI服务配置
+ai:
+    deepseek:
+        api-key: "CHANGE_ME"
+        base-url: "https://api.deepseek.com"
+        model: "deepseek-chat"
+        max-tokens: 8192
+        temperature: 0.7
+        top-p: 0.95
+        timeout: 180
+    deepseek-reasoner:
+        api-key: "CHANGE_ME"
+        base-url: "https://api.deepseek.com"
+        model: "deepseek-reasoner"
+        max-tokens: 32768
+        temperature: 0.3
+        top-p: 0.95
+        timeout: 300
+    openai:
+        api-key: "CHANGE_ME"
+        base-url: "https://api.openai.com/v1"
+        model: "YOUR_MODEL"
+        max-tokens: 8192
+        temperature: 0.7
+        top-p: 0.95
+        timeout: 180
+    embedding:
+        provider: "mock"
+        model: "text-embedding-ada-002"
+        api-key: "CHANGE_ME"
+        base-url: ""
+        dimensions: 1536
+        timeout: 60
+    vector:
+        provider: "postgres"
+        dimensions: 1536
+        similarity-threshold: 0.7
+        max-results: 20
+        index-type: "cosine"
+    # 新增Mermaid生成器配置
+    mermaid:
+        # 并发配置
+        max-workers: 5                    # 最大工作协程数
+        batch-size: 10                    # 批量处理大小
+        task-channel-buffer: 100          # 任务通道缓冲区
+        result-channel-buffer: 100        # 结果通道缓冲区
+
+        # 超时配置
+        worker-timeout: 300                # 工作协程超时时间(秒)
+        batch-update-timeout: 300          # 批量更新超时时间(秒)
+
+        # AI参数配置
+        max-tokens: 8192                  # 最大token数
+        temperature: 0.3                  # 温度参数(降低以获得更一致输出)
+        top-p: 0.8                        # Top-P参数
+        model: "deepseek-chat"            # 使用的模型
+
+        # 流程图配置
+        max-nodes: 8                      # 最大节点数
+        max-depth: 4                      # 最大深度
+        max-edges: 12                     # 最大边数
+
+        # 质量配置
+        min-confidence: 0.6               # 最小置信度
+        enable-validation: true            # 是否启用验证
+        enable-styling: true              # 是否启用样式
+
+        # 主题配置
+        default-theme: "default"          # 默认主题
+        color-scheme: "nesma"             # 颜色方案
+
+# Agent配置
+agent:
+    registry:
+        heartbeat-interval: 30
+        health-check-interval: 30
+        max-concurrent-tasks: 3
+        message-queue-size: 100
+    workflows:
+        max-execution-time: 300
+        retry-attempts: 3
+        retry-delay: 5
+sqlite:
+    prefix: ""
+    port: ""
+    config: ""
+    db-name: ""
+    username: "CHANGE_ME"
+    password: "CHANGE_ME"
+    path: ""
+    engine: ""
+    log-mode: ""
+    max-idle-conns: 10
+    max-open-conns: 100
+    singular: false
+    log-zap: false
+system:
+    db-type: pgsql
+    oss-type: local
+    router-prefix:
+    addr: 8888
+    iplimit-count: 15000
+    iplimit-time: 3600
+    use-multipoint: false
+    use-redis: false
+    use-mongo: false
+    use-strict-auth: false
+tencent-cos:
+    bucket: xxxxx-10005608
+    region: ap-shanghai
+    secret-id: "CHANGE_ME"
+    secret-key: "CHANGE_ME"
+    base-url: https://gin.vue.admin
+    path-prefix: github.com/flipped-aurora/gin-vue-admin/server
+zap:
+    level: info
+    prefix: '[nesma/server]'
+    format: console
+    director: log
+    encode-level: LowercaseColorLevelEncoder
+    stacktrace-key: stacktrace
+    show-line: true
+    log-in-console: true
+    retention-day: -1

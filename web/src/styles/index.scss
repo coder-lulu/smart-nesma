@@ -1,0 +1,334 @@
+// =================================================================
+// Smart-NESMA 样式文件 - 仅限Smart-NESMA特定组件使用
+// =================================================================
+
+// 导入设计系统，但限制在特定作用域内
+@import './design-tokens.scss';
+@import './base.scss';
+@import './components.scss';
+
+// === Smart-NESMA 专用作用域样式 ===
+// 只在 Smart-NESMA 相关页面和组件中应用，不影响全局框架样式
+
+// Smart-NESMA 页面专用样式
+.smart-nesma-page {
+  // 在这个作用域内定义Smart-NESMA的设计tokens
+  --el-color-primary: var(--nesma-primary);
+  --el-color-primary-light-3: var(--nesma-primary-light);
+  --el-color-primary-light-5: var(--nesma-primary-lighter);
+  --el-color-primary-dark-2: var(--nesma-primary-dark);
+  
+  --el-color-success: var(--nesma-success);
+  --el-color-warning: var(--nesma-warning);
+  --el-color-danger: var(--nesma-danger);
+  --el-color-info: var(--nesma-info);
+  
+  --el-text-color-primary: var(--nesma-text-primary);
+  --el-text-color-regular: var(--nesma-text-secondary);
+  --el-text-color-secondary: var(--nesma-text-muted);
+  --el-text-color-placeholder: var(--nesma-text-disabled);
+  
+  --el-bg-color: var(--nesma-bg-primary);
+  --el-bg-color-page: var(--nesma-bg-secondary);
+  --el-bg-color-overlay: var(--nesma-bg-tertiary);
+  
+  --el-border-color: var(--nesma-border-light);
+  --el-border-color-light: var(--nesma-border-light);
+  --el-border-color-lighter: var(--nesma-border-light);
+  --el-border-color-extra-light: var(--nesma-border-light);
+  --el-border-color-dark: var(--nesma-border-medium);
+  --el-border-color-darker: var(--nesma-border-strong);
+  
+  --el-font-family: var(--nesma-font-family-base);
+  --el-font-size-base: var(--nesma-text-base);
+  --el-font-size-small: var(--nesma-text-sm);
+  --el-font-size-large: var(--nesma-text-lg);
+  --el-font-size-extra-large: var(--nesma-text-xl);
+  
+  --el-border-radius-base: var(--nesma-radius-md);
+  --el-border-radius-small: var(--nesma-radius-base);
+  --el-border-radius-round: var(--nesma-radius-full);
+  
+  --el-box-shadow: var(--nesma-shadow-base);
+  --el-box-shadow-light: var(--nesma-shadow-sm);
+  --el-box-shadow-dark: var(--nesma-shadow-md);
+  
+  --el-transition-duration: var(--nesma-duration-base);
+  --el-transition-duration-fast: var(--nesma-duration-fast);
+
+  // 在Smart-NESMA页面内的Element Plus组件样式定制
+  .el-button {
+    font-weight: var(--nesma-font-medium);
+    transition: all var(--nesma-duration-base) var(--nesma-ease-out);
+    
+    &:hover {
+      transform: translateY(-1px);
+    }
+    
+    &:active {
+      transform: translateY(0);
+    }
+    
+    &.is-plain {
+      &:hover {
+        transform: none;
+      }
+    }
+    
+    // 主按钮渐变效果
+    &--primary {
+      background: var(--nesma-gradient-primary);
+      border: none;
+      
+      &:hover,
+      &:focus {
+        background: var(--nesma-gradient-primary);
+        filter: brightness(1.1);
+      }
+    }
+    
+    // 成功按钮
+    &--success {
+      background: var(--nesma-gradient-success);
+      border: none;
+      
+      &:hover,
+      &:focus {
+        background: var(--nesma-gradient-success);
+        filter: brightness(1.1);
+      }
+    }
+    
+    // 警告按钮
+    &--warning {
+      background: var(--nesma-gradient-warning);
+      border: none;
+      
+      &:hover,
+      &:focus {
+        background: var(--nesma-gradient-warning);
+        filter: brightness(1.1);
+      }
+    }
+    
+    // 危险按钮
+    &--danger {
+      background: var(--nesma-gradient-danger);
+      border: none;
+      
+      &:hover,
+      &:focus {
+        background: var(--nesma-gradient-danger);
+        filter: brightness(1.1);
+      }
+    }
+  }
+
+  // 卡片组件美化
+  .el-card {
+    border-radius: var(--nesma-radius-lg);
+    box-shadow: var(--nesma-shadow-base);
+    border: 1px solid var(--nesma-border-light);
+    transition: all var(--nesma-duration-base) var(--nesma-ease-out);
+    
+    &:hover {
+      box-shadow: var(--nesma-shadow-md);
+      transform: translateY(-1px);
+    }
+    
+    .el-card__header {
+      background: var(--nesma-bg-secondary);
+      border-bottom: 1px solid var(--nesma-border-light);
+      font-weight: var(--nesma-font-semibold);
+    }
+  }
+
+  // 输入框组件美化
+  .el-input {
+    .el-input__wrapper {
+      border-radius: var(--nesma-radius-md);
+      transition: all var(--nesma-duration-base) var(--nesma-ease-out);
+      
+      &:hover {
+        box-shadow: var(--nesma-shadow-sm);
+      }
+    }
+    
+    &.is-focus .el-input__wrapper {
+      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    }
+  }
+
+  // 选择器组件美化
+  .el-select {
+    .el-select__wrapper {
+      border-radius: var(--nesma-radius-md);
+      transition: all var(--nesma-duration-base) var(--nesma-ease-out);
+      
+      &:hover {
+        box-shadow: var(--nesma-shadow-sm);
+      }
+    }
+    
+    &.is-focus .el-select__wrapper {
+      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    }
+  }
+
+  // 表格组件美化
+  .el-table {
+    border-radius: var(--nesma-radius-lg);
+    overflow: hidden;
+    box-shadow: var(--nesma-shadow-base);
+    
+    .el-table__header {
+      th {
+        background: var(--nesma-bg-secondary);
+        color: var(--nesma-text-primary);
+        font-weight: var(--nesma-font-semibold);
+        border-bottom: 2px solid var(--nesma-border-medium);
+      }
+    }
+    
+    .el-table__body {
+      tr {
+        transition: background-color var(--nesma-duration-fast) var(--nesma-ease-out);
+        
+        &:hover {
+          background: var(--nesma-bg-secondary);
+        }
+      }
+    }
+  }
+
+  // 进度条组件美化
+  .el-progress {
+    .el-progress-bar__outer {
+      background: var(--nesma-gray-200);
+      border-radius: var(--nesma-radius-full);
+    }
+    
+    .el-progress-bar__inner {
+      background: var(--nesma-gradient-primary);
+      border-radius: var(--nesma-radius-full);
+      transition: width var(--nesma-duration-slow) var(--nesma-ease-out);
+    }
+  }
+
+  // 时间线组件美化
+  .el-timeline {
+    .el-timeline-item {
+      .el-timeline-item__node {
+        background: var(--nesma-gradient-primary);
+        border: 2px solid var(--nesma-bg-primary);
+        box-shadow: var(--nesma-shadow-base);
+      }
+      
+      .el-timeline-item__tail {
+        border-left: 2px solid var(--nesma-border-light);
+      }
+      
+      .el-timeline-item__content {
+        background: var(--nesma-bg-primary);
+        border-radius: var(--nesma-radius-lg);
+        padding: var(--nesma-space-4);
+        box-shadow: var(--nesma-shadow-sm);
+        margin-left: var(--nesma-space-4);
+        position: relative;
+        
+        &::before {
+          content: '';
+          position: absolute;
+          left: -8px;
+          top: 12px;
+          width: 0;
+          height: 0;
+          border-top: 8px solid transparent;
+          border-bottom: 8px solid transparent;
+          border-right: 8px solid var(--nesma-bg-primary);
+        }
+      }
+    }
+  }
+}
+
+// Smart-NESMA 特定页面的样式作用域
+.smart-nesma-unified-dashboard,
+.nesma-main,
+.nesma-workspace,
+.nesma-analysis,
+.nesma-project,
+.nesma-requirement,
+.nesma-evaluation,
+.nesma-document,
+.nesma-knowledge,
+.nesma-chat {
+  @extend .smart-nesma-page;
+}
+
+// Smart-NESMA 组件专用下拉菜单样式
+.smart-nesma-page {
+  // 下拉菜单美化(仅在Smart-NESMA弹出层中应用)
+  .el-popper.is-nesma-style {
+    .el-dropdown-menu {
+      border-radius: var(--nesma-radius-lg);
+      box-shadow: var(--nesma-shadow-lg);
+      border: 1px solid var(--nesma-border-light);
+      
+      .el-dropdown-menu__item {
+        border-radius: var(--nesma-radius-base);
+        margin: var(--nesma-space-1);
+        transition: all var(--nesma-duration-fast) var(--nesma-ease-out);
+        
+        &:hover {
+          background: var(--nesma-primary);
+          color: var(--nesma-text-inverse);
+        }
+      }
+    }
+  }
+
+  // 对话框美化(仅在Smart-NESMA中应用)
+  .el-dialog.is-nesma-style {
+    border-radius: var(--nesma-radius-xl);
+    box-shadow: var(--nesma-shadow-2xl);
+    
+    .el-dialog__header {
+      background: var(--nesma-gradient-primary);
+      color: var(--nesma-text-inverse);
+      border-radius: var(--nesma-radius-xl) var(--nesma-radius-xl) 0 0;
+      padding: var(--nesma-space-6);
+      
+      .el-dialog__title {
+        font-weight: var(--nesma-font-semibold);
+        font-size: var(--nesma-text-lg);
+      }
+      
+      .el-dialog__headerbtn {
+        top: var(--nesma-space-6);
+        right: var(--nesma-space-6);
+        
+        .el-dialog__close {
+          color: var(--nesma-text-inverse);
+          font-size: var(--nesma-text-lg);
+          
+          &:hover {
+            color: var(--nesma-text-inverse);
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--nesma-radius-base);
+          }
+        }
+      }
+    }
+    
+    .el-dialog__body {
+      padding: var(--nesma-space-6);
+    }
+    
+    .el-dialog__footer {
+      padding: var(--nesma-space-4) var(--nesma-space-6) var(--nesma-space-6);
+      background: var(--nesma-bg-secondary);
+      border-radius: 0 0 var(--nesma-radius-xl) var(--nesma-radius-xl);
+    }
+  }
+}
