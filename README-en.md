@@ -26,11 +26,11 @@ This project does not claim full compliance with a particular NESMA standard ver
 
 Use Go 1.23 or newer, Node.js 18 or newer (Node.js 22 recommended for the locked tooling), pnpm, and PostgreSQL with pgvector installed and enabled in the target database. Redis is optional and disabled in the example configuration.
 
-See the [Chinese setup guide](./README.md#本地运行) for configuration, existing Docker PostgreSQL reuse, private-backup restoration, and fresh initialization. The default frontend address is <http://127.0.0.1:8080>; the backend runs on port `8888`. A fresh installation must start with an empty `pgsql.db-name` to reach the initialization wizard. The full fresh-install workflow has not been independently tested end to end.
+See the [Chinese setup guide](./README.md#本地运行) for configuration, existing Docker PostgreSQL reuse, demo-backup restoration, and fresh initialization. The default frontend address is <http://127.0.0.1:8080>; the backend runs on port `8888`. A fresh installation must start with an empty `pgsql.db-name` to reach the initialization wizard. The full fresh-install workflow has not been independently tested end to end.
 
-Business database dumps, actual business attachments, and runtime credentials are excluded from this public repository. Never restore `globals.sql` over shared PostgreSQL roles or credentials.
+The [database directory](./database/README.md) includes matching custom-format and SQL backups of the sanitized demo shown in the screenshots. Restore either into an empty dedicated PostgreSQL 17 database with pgvector preinstalled. The demo login is `admin` / `123456`; change it after restoration. Original business backups, actual business attachments, and runtime credentials are excluded. Never restore `globals.sql` over shared PostgreSQL roles or credentials.
 
-The [Chinese README](./README.md) includes the detailed feature matrix, two Mermaid diagrams, operating boundaries, and 16 annotated screenshots.
+The [Chinese README](./README.md) includes the detailed feature matrix, two Mermaid diagrams, operating boundaries, and 17 annotated screenshots.
 
 ## License and attribution
 

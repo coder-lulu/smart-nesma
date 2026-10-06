@@ -1,22 +1,42 @@
-# 数据库准备
+# 演示数据库
 
-Smart NESMA 使用 PostgreSQL，向量知识库功能还需要 pgvector 扩展。连接信息在 `server/config.example.yaml` 中提供结构示例；复制为 `server/config.yaml`，并设置自己的数据库主机、端口、数据库名称、账号和密码。
+本目录提供与 README 中 17 张截图对应的“蜂巢工作室 · 智慧园区演示”数据，包含 1 个项目、2 个建设周期、2 个需求版本、13 条层级需求、1 条人工评估和 3 条知识条目，以及应用所需的菜单、角色与权限数据。评估为人工样例，没有实际 AI 计算结果的保证。
 
-仓库不公开数据库备份。`*.dump` 可能包含项目、需求、用户、会话及业务数据，已列入忽略规则。若采用备份恢复方式部署，请自行提供经过授权的备份文件，恢复到专用数据库。现有应用的备份可能同时包含菜单、角色和权限等初始化数据；仅启动后端自动建表不保证业务环境已经完整初始化。
+- `s_nesma.dump`：PostgreSQL custom-format 演示备份。
+- `s_nesma.sql`：同一份演示库的可检索 SQL，便于查看数据和恢复。
 
-下面示例复用已有 Docker PostgreSQL 容器，不创建或覆盖现有容器。将 `<container>`、`<database-user>` 和 `<database-name>` 替换为自己的值，并先创建一个空的专用数据库：
+两种格式任选其一。公开文件仅含演示数据，不包含原始业务备份或真实运行凭证；不要再把实际业务备份加入本目录。
 
-```sh
-docker cp database/s_nesma.dump <container>:/tmp/s_nesma.dump
-docker exec <container> pg_restore --no-owner --no-privileges -U <database-user> -d <database-name> /tmp/s_nesma.dump
-```
+## 恢复准备
 
-恢复前确保容器中的 PostgreSQL 已安装 pgvector，并由有权限的数据库管理员在目标数据库中执行：
+使用 PostgreSQL **17** 与匹配版本的 **pgvector**。可以复用已有 Docker PostgreSQL 容器。自行创建独立应用角色和归其所有的空数据库，不覆盖已有业务库。由数据库管理员在该目标库中预先执行：
 
 ```sql
 CREATE EXTENSION IF NOT EXISTS vector;
 ```
 
-`globals.sql` 属于 PostgreSQL 集群级全局对象备份，可能包含角色、密码哈希及权限，不能作为公开示例提交。不要将其导入共享数据库集群以覆盖现有账号或权限。请为应用单独创建数据库角色并按需要授予权限。
+两种备份均已去除扩展创建和扩展注释语句。`globals.sql` 不发布，也不需要导入；它属于集群级对象备份，可能包含角色、密码哈希及权限。应用角色应在自己的环境中创建。
 
-恢复后检查数据库连接及应用登录、菜单、项目列表；正式使用前更改备份中的默认账号密码和示例配置中的 JWT 签名密钥。
+将下列占位符替换为实际容器名、应用角色和空目标数据库名。所用角色需要目标库的建表及写入权限；认证使用自己配置的凭证。
+
+## 从 dump 恢复
+
+```sh
+docker cp database/s_nesma.dump <container>:/tmp/s_nesma.dump
+docker exec <container> pg_restore --no-owner --no-privileges --exit-on-error --single-transaction -U <database-user> -d <database-name> /tmp/s_nesma.dump
+```
+
+## 从 SQL 恢复
+
+SQL 已去除对象所有者与权限恢复语句，不创建数据库或集群角色：
+
+```sh
+docker cp database/s_nesma.sql <container>:/tmp/s_nesma.sql
+docker exec <container> psql -X -v ON_ERROR_STOP=1 --single-transaction -U <database-user> -d <database-name> -f /tmp/s_nesma.sql
+```
+
+## 配置与登录
+
+将 `server/config.example.yaml` 复制为本地 `server/config.yaml`，设置自己的 PostgreSQL 主机、端口、数据库名、账号和密码，再按主 README 启动应用。
+
+演示账号为 `admin`，密码为 `123456`。恢复后修改此密码，并为 `jwt.signing-key` 设置独立随机密钥。检查登录、菜单、项目及需求列表。外部 AI 需要自行配置，演示库不包含服务密钥；演示评估数值不能直接作为正式计量结论。

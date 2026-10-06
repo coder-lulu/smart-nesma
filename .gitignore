@@ -47,6 +47,7 @@ web/.pnpm-debug.log
 /server/config.local.yaml
 /server/config.*.local.yaml
 /database/*.dump
+!/database/s_nesma.dump
 /database/globals.sql
 .env
 .env.*

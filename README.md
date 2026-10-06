@@ -8,7 +8,7 @@ Smart-NESMA 是面向软件需求梳理、功能点记录与评估协作的 Web 
 
 ![Smart-NESMA 工作台](docs/screenshots/01-workspace.png)
 
-> 截图来自独立的脱敏演示数据，展示界面与功能组织；不代表 AI 服务、计算结果或完整业务流程已经通过端到端验收。本仓库不包含原始业务数据库备份、实际业务附件或运行凭证。
+> 截图来自独立的脱敏演示数据，展示界面与功能组织；不代表 AI 服务、计算结果或完整业务流程已经通过端到端验收。`database/` 提供与截图对应的智慧园区演示备份，不包含原始业务数据库备份、实际业务附件或真实运行凭证。
 
 ## 已实现的功能
 
@@ -148,7 +148,7 @@ flowchart TB
 - Go **1.23 或更新版本**；`server/go.mod` 指定 `go 1.23`、工具链 `go1.23.9`。
 - Node.js **22 或更新版本**，以适配锁定依赖中的较新工具。
 - pnpm，使用仓库内的 `web/pnpm-lock.yaml` 安装依赖。
-- 可连接的 PostgreSQL，数据库服务器安装 **pgvector** 扩展。可以复用已经运行的 Docker PostgreSQL 容器。
+- PostgreSQL **17**，数据库服务器安装 **pgvector** 扩展。可以复用已经运行的 Docker PostgreSQL 容器。
 - Redis 是可选项；示例配置中 `system.use-redis` 为 `false`。
 
 以下命令从仓库根目录开始，适用于 PowerShell 或具有相应命令的 shell。启动步骤依据当前源码入口及配置编写；全新环境安装和空库初始化尚未作为独立端到端流程完整验收。需要用户环境参数的数据库恢复命令未在共享数据库上重复执行。
@@ -177,13 +177,13 @@ cp server/config.example.yaml server/config.yaml
 
 ### 2. 准备数据库
 
-**已有 Docker PostgreSQL 与自备备份：**
+**使用仓库演示备份（推荐）：**
 
-在现有实例中为 Smart-NESMA 使用独立数据库。服务器必须已安装与 PostgreSQL 版本匹配的 pgvector，并在目标数据库中启用 `vector` 扩展；仅安装普通 PostgreSQL 镜像不保证包含它。
+`database/s_nesma.dump` 与可检索的 `database/s_nesma.sql` 来自同一份智慧园区演示库，与本 README 的 17 张截图对应。包含 1 个项目、2 个建设周期、2 个需求版本、13 条层级需求、1 条人工评估和 3 条知识条目，以及运行所需的菜单与权限数据。评估数值是人工样例，不代表真实 AI 计算或正式计量结论。
 
-如果拥有本项目的合法备份，可使用 PostgreSQL 的 `pg_restore` 恢复 custom-format `.dump`，指定目标数据库，并按本地角色配置使用 `--no-owner`、`--no-privileges`。备份恢复目标应是专门准备的空库。不要将 `globals.sql` 导入共享实例来覆盖已有角色、密码或权限，也不要对共享数据库执行清理恢复。具体容器名、用户、端口和备份路径由你的环境决定，因此这里不提供会直接修改未知实例的复制即执行命令。
+在已有 Docker PostgreSQL 17 实例中创建独立应用角色和空的专用数据库。安装匹配版本的 pgvector，并由管理员在目标库预先执行 `CREATE EXTENSION IF NOT EXISTS vector;`。两种备份均不包含扩展创建及扩展注释语句，任选一种恢复即可；`.dump` 使用 `pg_restore --no-owner --no-privileges --exit-on-error --single-transaction`，SQL 使用 `psql -v ON_ERROR_STOP=1 --single-transaction`。具体命令见 [数据库恢复说明](database/README.md)。
 
-恢复完成后，将 `pgsql.db-name` 设为目标库名，再启动后端。本公开仓库不提供业务 `.dump`、SQL 数据备份或真实账号密码。
+恢复后将 `pgsql.db-name` 设为目标库名。演示账号为 `admin`，密码为 `123456`，恢复后请修改密码与 JWT 签名密钥。公开备份只用于演示；原始业务备份、集群级 `globals.sql` 和真实凭证不纳入仓库。
 
 **没有备份，使用全新初始化：**
 
@@ -215,7 +215,7 @@ pnpm serve
 
 访问 <http://127.0.0.1:8080>。开发环境由 `web/.env.development` 设置：前端 `8080`、后端 `8888`，`/api` 由 Vite 代理到后端。端口变更时同时调整前后端配置。
 
-`pnpm serve` 会先运行上游的 `openDocument.js`，在部分桌面系统打开上游文档页，然后启动 Vite。登录使用自己初始化或恢复的账号；仓库不发布真实环境的登录凭证。
+`pnpm serve` 会先运行上游的 `openDocument.js`，在部分桌面系统打开上游文档页，然后启动 Vite。恢复仓库演示库后可用 `admin / 123456` 登录，并立即修改密码；自行初始化时使用自己的账号。
 
 需要前端生产构建时，在 `web` 目录执行：
 
